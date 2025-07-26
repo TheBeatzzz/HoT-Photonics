@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photonics Research Team | Performance Infographic 2015-2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#005f73] mb-2">Hub of Talents</h2><br>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#005f73] mb-2">Photonics for Sustainable Cities</h1>
+            <p class="text-xl text-gray-600">A 10-Year Performance Review (2015-2025)</p>
+        </header>
+
+        <section id="kpis" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#0a9396]">Team Performance at a Glance</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="stat-card border-l-4 border-[#0a9396]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">281</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Publications</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#94d2bd]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">5,199</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Total Citations</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#ee9b00]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">0.97</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Avg. Field-Weighted Citation Impact</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#ca6702]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">37.7%</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Avg. International Collaboration</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Researcher Productivity & Impact</h3>
+                <p class="text-gray-600 mb-6">A comparative look at individual scholarly output and field-weighted citation impact (FWCI). An FWCI of 1.0 represents world-average citation impact, while values greater than 1.0 are above average.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-center mb-2 text-[#0a9396]">Scholarly Output</h4>
+                        <div class="chart-container">
+                            <canvas id="scholarlyOutputChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-center mb-2 text-[#0a9396]">Citation Impact (FWCI)</h4>
+                        <div class="chart-container">
+                            <canvas id="fwciChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Team Publication Trend (2015-2024)</h3>
+                <p class="text-gray-600 mb-6">This chart shows the total number of publications produced by the entire team each year, illustrating the collective research productivity over time.</p>
+                <div class="chart-container">
+                    <canvas id="yearlyPublicationTrendChart"></canvas>
+                </div>
+            </div>
+
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Subject Matter Expertise</h3>
+                <p class="text-gray-600 mb-4">The team demonstrates a strong, interdisciplinary focus, with primary strengths in Physics, Materials Science, and Engineering, complemented by significant contributions in Chemistry.</p>
+                <div class="chart-container mx-auto" style="max-width: 500px;">
+                    <canvas id="subjectAreaChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Global Collaboration Rate</h3>
+                 <p class="text-gray-600 mb-4">The team's engagement in international collaboration varies, with several members demonstrating exceptionally strong global networks, enhancing the reach and impact of their research.</p>
+                <div class="chart-container">
+                    <canvas id="collaborationChart"></canvas>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Keyphrase Analysis & Core Research Topics</h3>
+                <p class="text-gray-600 mb-6">Analysis of the top research topics reveals several distinct and interconnected themes that define the group's scientific focus.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                        <h4 class="font-bold text-lg mb-3 text-[#005f73]">Optical Imaging & Sensing</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Optical Coherence Tomography</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Digital Holography</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Confocal Microscopy</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">FTIR Spectroscopy</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Infrared Imaging</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                        <h4 class="font-bold text-lg mb-3 text-[#005f73]">Biophotonics & Diagnostics</h4>
+                        <div class="flex flex-wrap gap-2">
+                             <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Fluorescent Probes</span>
+                             <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Surface Plasmon Resonance</span>
+                             <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Lateral Flow Immunoassays</span>
+                             <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">BODIPY & Cyanine Dyes</span>
+                             <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Pathogen Detection</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                        <h4 class="font-bold text-lg mb-3 text-[#005f73]">Advanced Optical Fibers</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Fiber Optic Sensors</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Terahertz Waveguides</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">3D Printed Optical Glass</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Microfiber Technologies</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Fabry-Perot Sensors</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                        <h4 class="font-bold text-lg mb-3 text-[#005f73]">Quantum & Silicon Photonics</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">NV Centers in Diamond</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Quantum Coherence</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Photonic Neural Networks</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Silicon Photonics</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Optical Beam Steering</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                        <h4 class="font-bold text-lg mb-3 text-[#005f73]">Advanced Materials</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Nanoparticles</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Hydrogen Storage</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">MXenes</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Strontium Titanate</span>
+                            <span class="bg-[#e9d8a6] text-[#ca6702] text-xs font-semibold px-2.5 py-1 rounded-full">Vanadium Oxide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Top 10 High-Impact Publications</h3>
+                <p class="text-gray-600 mb-6">A selection of the team's most influential work, highlighted by exceptionally high citation impact relative to their respective fields.</p>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Materials challenges and opportunities for quantum computing hardware</p>
+                        <p class="text-sm text-gray-600">de Leon, N.P., ...Sangtawesin, S., et al. (2021) Science</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 7.86</p>
+                    </div>
+                    <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Recent strategies to improve boron dipyrromethene (BODIPY) for photodynamic cancer therapy</p>
+                        <p class="text-sm text-gray-600">Kue, C.S., ...Kamkaew, A., et al. (2018) Photochemical and Photobiological Sciences</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 7.09</p>
+                    </div>
+                    <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Origins of Diamond Surface Noise Probed by Correlating Single-Spin Measurements...</p>
+                        <p class="text-sm text-gray-600">Sangtawesin, S., et al. (2019) Physical Review X</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 6.51</p>
+                    </div>
+                    <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">A Silicon Photonic Coherent Neuron with 10GMAC/sec processing line-rate</p>
+                        <p class="text-sm text-gray-600">Mourgias-Alexandris, G., ...Rutirawut, T., et al. (2021) OFC 2021</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 6.48</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Nanoparticles as Radiopharmaceutical Vectors</p>
+                        <p class="text-sm text-gray-600">Kamkaew, A., et al. (2019) Radiopharmaceutical Chemistry</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.84</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Observation of an environmentally insensitive solid-state spin defect in diamond</p>
+                        <p class="text-sm text-gray-600">Rose, B.C., ...Sangtawesin, S., et al. (2018) Science</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.82</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Noise-resilient and high-speed deep learning with coherent silicon photonics</p>
+                        <p class="text-sm text-gray-600">Mourgias-Alexandris, G., ...Rutirawut, T., et al. (2022) Nature Communications</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.68</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Scintillating Nanoparticles as Energy Mediators for Enhanced Photodynamic Therapy</p>
+                        <p class="text-sm text-gray-600">Kamkaew, A., et al. (2016) ACS Nano</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.54</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Neuromorphic Silicon Photonics and Hardware-Aware Deep Learning for High-Speed Inference</p>
+                        <p class="text-sm text-gray-600">Moralis-Pegios, M., ...Rutirawut, T., et al. (2022) Journal of Lightwave Technology</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.50</p>
+                    </div>
+                     <div class="p-4 rounded-lg border border-gray-200 bg-gray-50">
+                        <p class="font-bold text-[#005f73]">Dual-Modality Positron Emission Tomography/Optical Image-Guided Photodynamic Cancer Therapy</p>
+                        <p class="text-sm text-gray-600">Cheng, L., ...Kamkaew, A., et al. (2016) ACS Nano</p>
+                        <p class="text-right font-bold text-lg text-[#ae2012]">FWCI: 5.27</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-200">
+            <p class="text-sm text-gray-500">Data sourced from Scopus, up to 16 Jul 2025. This is a visual summary and not an exhaustive analysis.</p>
+            <p class="text-sm text-gray-500">Generated on <span id="generationDate"></span>.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('generationDate').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        const researcherData = [
+            { name: 'Kamkaew, A.', output: 92, fwci: 1.40, collab: 44.6 },
+            { name: 'Meemon, P.', output: 47, fwci: 0.68, collab: 31.9 },
+            { name: 'Sutapun, B.', output: 18, fwci: 0.64, collab: 16.7 },
+            { name: 'Rutirawut, T.', output: 28, fwci: 1.53, collab: 64.3 },
+            { name: 'Sangtawesin, S.', output: 19, fwci: 1.80, collab: 63.2 },
+            { name: 'Lertsiriyothin, W.', output: 7, fwci: 0.14, collab: 0.0 },
+            { name: 'Fongkaew, I.', output: 37, fwci: 0.73, collab: 32.4 },
+            { name: 'Talataisong, W.', output: 33, fwci: 0.80, collab: 48.5 },
+        ];
+        
+        const yearlyData = {
+            labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+            publications: [19, 25, 23, 33, 12, 12, 31, 51, 39, 36]
+        };
+
+        const collaborationImpactData = [
+            { collaborator: 'De Leon, N.P. (Harvard)', pubs: 11, citationsPerPub: 78.8, totalCitations: 867 },
+            { collaborator: 'Cai, W. (U. Wisconsin)', pubs: 10, citationsPerPub: 81.8, totalCitations: 818 },
+            { collaborator: 'Brambilla, G. (U. Southampton)', pubs: 23, citationsPerPub: 14.4, totalCitations: 331 },
+            { collaborator: 'Gardes, F.Y. (U. Southampton)', pubs: 24, citationsPerPub: 15.5, totalCitations: 372 },
+            { collaborator: 'Rolland, J.P.V. (U. Rochester)', pubs: 10, citationsPerPub: 25.2, totalCitations: 252 },
+            { collaborator: 'Burgess, K. (Texas A&M)', pubs: 14, citationsPerPub: 30.7, totalCitations: 430 },
+            { collaborator: 'Kirtas, M. (Aristotle U.)', pubs: 6, citationsPerPub: 31.5, totalCitations: 189 },
+        ];
+        
+        const palette = {
+            blueDark: '#005f73',
+            teal: '#0a9396',
+            tealLight: '#94d2bd',
+            sand: '#e9d8a6',
+            orange: '#ee9b00',
+            orangeDark: '#ca6702',
+            redDark: '#ae2012'
+        };
+
+        const chartTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        font: {
+                            family: 'Inter',
+                        }
+                    }
+                }
+            }
+        };
+
+        const wrapLabel = (label, maxLength = 16) => {
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const researcherLabels = researcherData.map(r => r.name);
+
+        new Chart(document.getElementById('scholarlyOutputChart'), {
+            type: 'bar',
+            data: {
+                labels: researcherLabels,
+                datasets: [{
+                    label: 'Scholarly Output',
+                    data: researcherData.map(r => r.output),
+                    backgroundColor: palette.teal,
+                    borderColor: palette.blueDark,
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartTooltipConfig, responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+        });
+
+        const sortedByFwci = [...researcherData].sort((a, b) => b.fwci - a.fwci);
+        new Chart(document.getElementById('fwciChart'), {
+            type: 'bar',
+            data: {
+                labels: sortedByFwci.map(r => r.name),
+                datasets: [{
+                    label: 'Field-Weighted Citation Impact',
+                    data: sortedByFwci.map(r => r.fwci),
+                    backgroundColor: (context) => context.raw > 1.0 ? palette.orange : palette.tealLight,
+                    borderColor: (context) => context.raw > 1.0 ? palette.orangeDark : palette.teal,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { 
+                        beginAtZero: true,
+                        title: { display: true, text: 'FWCI (World Average = 1.0)' }
+                    } 
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+        
+        const sortedByCollab = [...researcherData].sort((a, b) => b.collab - a.collab);
+        new Chart(document.getElementById('collaborationChart'), {
+            type: 'bar',
+            data: {
+                labels: sortedByCollab.map(r => r.name),
+                datasets: [{
+                    label: '% International Collaboration',
+                    data: sortedByCollab.map(r => r.collab),
+                    backgroundColor: palette.teal,
+                    borderColor: palette.blueDark,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { 
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    } 
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('subjectAreaChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Physics & Astronomy', 'Materials Science', 'Engineering', 'Chemistry', 'Computer Science'],
+                datasets: [{
+                    label: 'Team Subject Focus (%)',
+                    data: [51.1, 40.0, 44.3, 28.5, 16.6],
+                    backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                    borderColor: palette.teal,
+                    pointBackgroundColor: palette.teal,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: palette.teal
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12, family: 'Inter' } },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#666'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 60
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('yearlyPublicationTrendChart'), {
+            type: 'line',
+            data: {
+                labels: yearlyData.labels,
+                datasets: [{
+                    label: 'Total Publications',
+                    data: yearlyData.publications,
+                    fill: true,
+                    backgroundColor: 'rgba(148, 210, 189, 0.2)',
+                    borderColor: palette.teal,
+                    tension: 0.1,
+                    pointBackgroundColor: palette.blueDark,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('internationalCollaborationImpactChart'), {
+            type: 'bubble',
+            data: {
+                labels: collaborationImpactData.map(c => c.collaborator),
+                datasets: [{
+                    label: 'International Collaborators',
+                    data: collaborationImpactData.map(c => ({
+                        x: c.pubs,
+                        y: c.citationsPerPub,
+                        r: Math.sqrt(c.totalCitations) / 2 
+                    })),
+                    backgroundColor: [
+                        'rgba(0, 95, 115, 0.7)',
+                        'rgba(10, 147, 150, 0.7)',
+                        'rgba(148, 210, 189, 0.7)',
+                        'rgba(238, 155, 0, 0.7)',
+                        'rgba(202, 103, 2, 0.7)',
+                        'rgba(174, 32, 18, 0.7)',
+                        'rgba(187, 62, 3, 0.7)'
+                    ],
+                    borderColor: [
+                        '#005f73',
+                        '#0a9396',
+                        '#94d2bd',
+                        '#ee9b00',
+                        '#ca6702',
+                        '#ae2012',
+                        '#bb3e03'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Number of Co-Authored Publications'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Average Citations per Publication'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const dataPoint = collaborationImpactData[context.dataIndex];
+                                return [
+                                    `${dataPoint.collaborator}`,
+                                    `Publications: ${dataPoint.pubs}`,
+                                    `Avg Citations: ${dataPoint.citationsPerPub}`,
+                                    `Total Citations: ${dataPoint.totalCitations}`
+                                ];
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
