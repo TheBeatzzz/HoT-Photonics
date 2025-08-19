@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities - Hub of Photonics for Sustainable Cities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1600x800/a2d2ff/ffffff?text=Photonics+Lab') no-repeat center center;
+            background-size: cover;
+        }
+        .facility-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex">
+            <img src="https://i.ibb.co/y2z74yj/Logo-white.png" alt="Photonics Hub Logo" class="h-20 w-auto mr-3">
+            <div class="flex flex-col justify-center"></div>
+                <span class="text-3xl font-bold text-[#005f73] hidden sm:inline">Photonics for Sustainable Cities<br>
+                    <p class="text-xl text-gray-600 mt-1">Showcasing Our Cutting-Edge Facilities</p>
+                </span>                
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">State-of-the-Art Photonics Facilities</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">Driving innovation for sustainable cities through cutting-edge research in photonics and advanced sensing technologies.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="facilities" class="container mx-auto px-6 py-16">
+        
+        <div class="text-center mb-16">
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Laboratories</h3>
+            <p class="text-md md:text-lg text-gray-600 max-w-2xl mx-auto">Explore our world-class laboratories equipped with advanced instrumentation to push the boundaries of scientific discovery.</p>
+        </div>
+
+        <!-- Facilities Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Short pulse laser laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/d4a373/ffffff?text=Short+Pulse+Laser" alt="Short pulse laser laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Short Pulse Laser Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Specializing in the application of short pulse lasers for medical purposes, including Optical Coherence Tomography, wavelength-tunable confocal fluorescence microscopy, and fluorescence lifetime measurements. We also design and build custom spectrometers, including FTIR systems.</p>
+                </div>
+            </div>
+
+            <!-- Optical system designs laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/e9c46a/ffffff?text=Optical+System+Design" alt="Optical system designs laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Optical System Design Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Focused on designing and prototyping optical instruments for medical applications. Our capabilities include computer-aided optical system design, 3D modeling of medical devices, and building prototypes for tissue analysis systems.</p>
+                </div>
+            </div>
+
+            <!-- Electro-chemical sensors laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/f4a261/ffffff?text=Electrochemical+Sensors" alt="Electro-chemical sensors laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Electrochemical Sensors Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Developing microelectrode arrays using photolithography for advanced electrochemical sensing. We work on detecting disease biomarkers like creatinine, uric acid, and dopamine in biological samples without extensive sample preparation.</p>
+                </div>
+            </div>
+
+            <!-- High-performance computing (HPC) and Data center -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/e76f51/ffffff?text=HPC+and+Data+Center" alt="High-performance computing (HPC) and Data center" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">HPC and Data Center</h4>
+                    <p class="text-gray-600 mb-4">Our data center supports high-performance computing for AI-driven data and image analysis. We develop data acquisition systems using online platforms and IoT, and create advanced algorithms for image analysis.</p>
+                </div>
+            </div>
+
+            <!-- Quantum Sensing Laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/2a9d8f/ffffff?text=Quantum+Sensing" alt="Quantum Sensing Laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Quantum Sensing Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Exploring quantum phenomena for ultra-sensitive measurements. Our research includes quantum effects studies, quantum manipulation, single-photon detection, and developing novel quantum sensing technologies.</p>
+                </div>
+            </div>
+            
+            <!-- Optical Fiber Sensing Laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/264653/ffffff?text=Optical+Fiber+Sensing" alt="Optical Fiber Sensing Laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Optical Fiber Sensing Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Designing and fabricating microstructured optical fibers for medical sensing applications. We develop prototype systems for producing these fibers and create instruments for measuring biological substance concentrations using surface plasmon resonance.</p>
+                </div>
+            </div>
+
+            <!-- Photo Therapy Laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/8ecae6/ffffff?text=Photo+Therapy" alt="Photo Therapy Laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">Photo Therapy Laboratory</h4>
+                    <p class="text-gray-600 mb-4">Equipped with cell culture facilities to investigate the effects of light on biological systems. This lab supports research into phototherapy applications and light-based treatments.</p>
+                </div>
+            </div>
+
+            <!-- Photonics laboratory -->
+            <div class="facility-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/219ebc/ffffff?text=Photonics+Lab" alt="Photonics laboratory" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-bold mb-2 text-blue-700">General Photonics Laboratory</h4>
+                    <p class="text-gray-600 mb-4">A versatile lab for designing optical measurement tools, electronic circuits, and control software. We develop deep-learning models for agriculture, use hyperspectral imaging for food inspection, and laser speckle imaging for biomedical applications.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="bg-blue-600 text-white">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">We welcome collaborations and inquiries. Contact us to learn more about our facilities and research opportunities.</p>
+            <a href="mailto:panomsak@sut.ac.th" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Hub of Photonics for Sustainable Cities. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
