@@ -100,9 +100,16 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#about" class="text-gray-600 hover:text-[#0a9396] transition">About Us</a>
                 <a href="#research" class="text-gray-600 hover:text-[#0a9396] transition">Research Areas</a>
-                <a href="#team" class="text-gray-600 hover:text-[#0a9396] transition">Core Team</a>
-                <a href="#experts" class="text-gray-600 hover:text-[#0a9396] transition">International Experts</a>
-                <a href="#partners" class="text-gray-600 hover:text-[#0a9396] transition">Partners</a>
+                <div class="relative group">
+                        <button type="button" class="text-gray-600 hover:text-[#0a9396] transition focus:outline-none flex items-center">
+                            Team & Partners <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-50">
+                            <a href="#team" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Core Team</a>
+                            <a href="#experts" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">International Experts</a>
+                            <a href="#partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Partners</a>
+                        </div>
+                </div>
                 <a href="#" class="bg-[#0a9396] text-white px-4 py-2 rounded-full hover:bg-[#005f73] transition">Contact Us</a>
             </div>
             <button class="md:hidden text-2xl text-[#005f73]">
