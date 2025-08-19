@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub of Photonics Technology for Sustainable Cities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 95, 115, 0.8), rgba(0, 95, 115, 0.8)), url('https://placehold.co/1920x1080/005f73/FFFFFF?text=Photonics+Innovation') no-repeat center center;
+            background-size: cover;
+        }
+        .icon-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .hero-bg-experts {
+            background: linear-gradient(rgba(10, 147, 150, 0.85), rgba(10, 147, 150, 0.85)), url('https://placehold.co/1920x1080/0a9396/FFFFFF?text=Global+Collaboration') no-repeat center center;
+            background-size: cover;
+        }
+        .expert-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #94d2bd;
+            display: flex;
+            flex-direction: column;
+        }
+        .expert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .expert-card-content {
+            flex-grow: 1;
+        }
+        .hero-bg-partners {
+            background: linear-gradient(rgba(0, 95, 115, 0.8), rgba(0, 95, 115, 0.8)), url('https://placehold.co/1920x1080/005f73/FFFFFF?text=Partnerships') no-repeat center center;
+            background-size: cover;
+        }
+        .partner-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .partner-card-content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800" style="scroll-behavior: smooth;">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="https://i.ibb.co/y2z74yj/Logo-white.png" alt="Photonics Hub Logo" class="h-20 w-auto mr-3">
+                <span class="text-2xl font-bold text-[#005f73] hidden sm:inline">Photonics for Sustainable Cities</span>
+            </a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#about" class="text-gray-600 hover:text-[#0a9396] transition">About Us</a>
+                    <a href="#research" class="text-gray-600 hover:text-[#0a9396] transition">Research Areas</a>
+                    
+                    <div class="relative group hover:group">
+                        <div class="relative group">
+                            <button type="button" class="text-gray-600 hover:text-[#0a9396] transition focus:outline-none flex items-center">
+                                Team & Partners <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+                                <a href="#team" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Core Team</a>
+                                <a href="#experts" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">International Experts</a>
+                                <a href="#industry-partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Industry Partners</a>
+                                <a href="#healthcare-partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Healthcare Partners</a>
+                                <a href="#academic-partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Academic Partners</a>
+                                <a href="#government-partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Government Partners</a>
+                                <a href="#community-partners" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Community Partners</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group hover:group">
+                        <div class="relative group">
+                            <button type="button" class="text-gray-600 hover:text-[#0a9396] transition focus:outline-none flex items-center">
+                                Activities <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+                                <a href="#activities-news" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">News & Events</a>
+                                <a href="#activities-gallery" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Photo Gallery</a>
+                                <a href="#activities-awards" class="block px-4 py-2 text-gray-600 hover:bg-[#f0fdfa] hover:text-[#0a9396] transition">Awards & Recognition</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#footer-contact" class="bg-[#0a9396] text-white px-4 py-2 rounded-full hover:bg-[#005f73] transition">Contact Us</a>
+                </div>
+            <button id="mobileMenuBtn" class="md:hidden text-2xl text-[#005f73]">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-bg text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Photonics Science and Technology for Sustainable Living</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Harnessing the power of light to build smarter, healthier, and more resilient urban environments for the future.</p>
+                <a href="#footer-contact" class="bg-[#ee9b00] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#ca6702] transition">Contact Us</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Our Vision</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">To establish a national center of excellence that integrates interdisciplinary expertise to develop and deploy practical photonic technologies, addressing critical challenges in urban sustainability, from public health to environmental monitoring.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="text-5xl text-[#0a9396] mb-4"><i class="fas fa-users"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#005f73]">Hub of Talents</h3>
+                        <p class="text-gray-600">We unite leading experts from academia, government, and industry to foster collaborative innovation.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-5xl text-[#0a9396] mb-4"><i class="fas fa-city"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#005f73]">Sustainable Cities</h3>
+                        <p class="text-gray-600">Our focus is on creating tangible solutions for smart agriculture, urban safety, and environmental health.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-5xl text-[#0a9396] mb-4"><i class="fas fa-globe-americas"></i></div>
+                        <h3 class="text-2xl font-bold mb-2 text-[#005f73]">Global Impact</h3>
+                        <p class="text-gray-600">Through international partnerships, we aim to position Thailand as a leader in sustainable urban innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Core Research Areas</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Our research is structured around five key pillars designed to enhance the quality of urban life.</p>
+                    <img src="https://i.ibb.co/5gDw5Fw0/Theme.jpg" alt="Theme" border="0" class="mx-auto w-3/5">
+                  </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <div class="text-4xl text-[#ca6702] mb-4"><i class="fas fa-heartbeat"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-[#005f73]">Photonics for Social Well-being</h3>
+                        <p class="text-gray-600 text-sm">Developing wearable biosensors, advanced optical imaging, and phototherapy solutions for elderly care.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <div class="text-4xl text-[#ca6702] mb-4"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-[#005f73]">AI-based Urban Surveillance</h3>
+                        <p class="text-gray-600 text-sm">Enhancing public safety and security through intelligent, real-time monitoring systems.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <div class="text-4xl text-[#ca6702] mb-4"><i class="fas fa-leaf"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-[#005f73]">Environmental Health Sensors</h3>
+                        <p class="text-gray-600 text-sm">Using SPR, Raman, and hyperspectral imaging for precise monitoring of air and water quality.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <div class="text-4xl text-[#ca6702] mb-4"><i class="fas fa-tractor"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-[#005f73]">Smart Agriculture</h3>
+                        <p class="text-gray-600 text-sm">Integrating Photonics and IoT to improve precision, reduce costs, and promote sustainability in farming.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-center">
+                        <div class="text-4xl text-[#ca6702] mb-4"><i class="fas fa-cogs"></i></div>
+                        <h3 class="text-xl font-bold mb-2 text-[#005f73]">Industrial Innovations</h3>
+                        <p class="text-gray-600 text-sm">Modernizing traditional industries and fostering deep-tech startups with novel photonic solutions.</p>
+                    </div>
+                </div>
+                <br>
+                <img src="https://i.ibb.co/gZZrD9xG/Activities.jpg" alt="Theme" border="0" class="mx-auto">
+            </div>
+        </section>
+
+        <section id="team" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Our Core Team</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Meet the dedicated researchers from Suranaree University of Technology driving this initiative.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/qMb863wW/panomsak.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Assoc. Prof. Dr. Panomsak Meemon</h4>
+                        <p class="text-gray-500">Director/ Environmental Health/ Social Well-being</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://eng.sut.ac.th/ENG2023/wp-content/uploads/2024/01/Boonsong-S.png" class="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Asst. Prof. Dr. Boonsong Sutapun</h4>
+                        <p class="text-gray-500">Smart Agriculture: Photonics IoT</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/kVRmL7v0/Anyanee.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Assoc. Prof. Dr. Anyanee Kamkaew</h4>
+                        <p class="text-gray-500">Social Well-being: Photodynamic Therapy</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/nNmDYWJw/ittipon.jpg" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Asst. Prof. Dr. Ittipon Fongkaew</h4>
+                        <p class="text-gray-500">AI-based Urban Surveillance: Deep learning</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/yc7v7cXM/Wanvisa.jpg" class="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Wanvisa Talataisong</h4>
+                        <p class="text-gray-500">Innovation and Industry/ Optical Fiber Sensors</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://stt48.scisoc.or.th/stt48/speakers/c7.png" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Assoc. Prof. Dr. Kamonwad Ngamchuea</h4>
+                        <p class="text-gray-500">Social Well-being: Electrochemical sensors</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://eng.sut.ac.th/ENG2023/wp-content/uploads/2024/08/Weerasak-L.png" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Asst. Prof. Dr. Weerasak Lertsiriyothin</h4>
+                        <p class="text-gray-500">Smart Agriculture: MIR & Therahertz Spectroscopy</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/zWR1mds0/Image-17-8-2568-BE-at-13-43.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Sorawis Sangtaweesin</h4>
+                        <p class="text-gray-500">Innovation and Industry: Quantum Photonics</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/C3SS5M3b/Teerapat.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Teerapat Rutirawut</h4>
+                        <p class="text-gray-500">Innovation and Industry: Photonics on Chips</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/Q7Qz0d7m/Monchai.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Monchai Jitvisate</h4>
+                        <p class="text-gray-500">Innovation and Industry: Advanced Optical Instrumentation</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/fdPzsCCs/Piyamas.jpg" class="w-38 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Piyamas Petchareon</h4>
+                        <p class="text-gray-500">Public Safety: Photonics in Forensics</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://i.ibb.co/Ps7PkmPc/Kattika.jpg" class="w-35 h-40 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <h4 class="font-bold text-lg text-[#005f73]">Dr. Kattika Kaarj</h4>
+                        <p class="text-gray-500">Social Well-being: Microfluidics & Lab-on-Chip</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kpis" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-[#0a9396]">Team Performance at a Glance (2010-2025)</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="stat-card border-l-4 border-[#0a9396]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">457</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Publications</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#94d2bd]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">10,266</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Total Citations</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#ee9b00]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">1.13</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Avg. Field-Weighted Citation Impact</p>
+                </div>
+                <div class="stat-card border-l-4 border-[#ca6702]">
+                    <p class="text-5xl font-extrabold text-[#005f73]">34%</p>
+                    <p class="text-lg font-semibold text-gray-600 mt-2">Avg. International Collaboration</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Team Publication Trend (2015-2024)</h3>
+                <p class="text-gray-600 mb-6">This chart shows the total number of publications produced by the entire team each year, illustrating the collective research productivity over time.</p>
+                <img src="https://i.ibb.co/Ps2hQpYP/Pubs-per-year.jpg" alt="Pubs-per-year" border="0">
+            </div>
+            <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-2xl font-bold mb-1 text-[#005f73]">Citation Impact (FWCI)</h3>
+                <p class="text-gray-600 mb-6">An FWCI of 1.0 represents world-average citation impact, while values greater than 1.0 are above average.</p>
+                <img src="https://i.ibb.co/B5vwcLL0/FWCI.jpg" alt="FWCI" border="0">
+            </div>                
+        </section>
+        <br>       
+        
+        <section id="experts" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Meet Our International Collaborators</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-4xl mx-auto">Our Hub thrives on the diverse expertise of leading international researchers. These collaborations are crucial for developing cutting-edge technologies and ensuring our solutions have a global impact.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="expert-card text-center">
+                        <img src="https://spie.org/images/Graphics/AboutSPIE/Delete_OLD-PAGES/2017/People/Rolland_Jannick_LTT.png" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Jannick P. Rolland</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">University of Rochester, USA</p>
+                            <p class="text-gray-600 mb-4">A world-renowned expert in Biomedical Optics and Medical Imaging. Prof. Rolland collaborates on developing prototype photonic imaging and biosensor technologies for medical and elderly care applications.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 578 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 12,661 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 55</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://artsci.tamu.edu/chemistry/_files/_images/_profile-images/kevin-burgess.jpg" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Kevin M.N. Burgess</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Texas A&M University, USA</p>
+                            <p class="text-gray-600 mb-4">Specialist in the design and application of cyanine and BODIPY dyes for advanced cancer imaging, therapy, and fluorescent probe development.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 375 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 29,967 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 78</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://www.hajim.rochester.edu/ece/people/faculty/parker_kevin/assets/images/k-parker.png" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Kevin J. Parker</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">University of Rochester, USA</p>
+                            <p class="text-gray-600 mb-4">A pioneer in Ultrasound Imaging and Elastography. Prof. Parker collaborates on developing advanced image analysis algorithms to enhance our photonic-based biosensing and imaging systems.</p>
+                        </div>
+                         <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 403 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 10,863 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 53</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://placehold.co/128x128/94d2bd/005f73?text=LC" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Liang Cheng</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Soochow University, China</p>
+                            <p class="text-gray-600 mb-4">A leading figure in nanoparticle innovations and photothermal therapy, contributing significantly to our biophotonics and medical applications research.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 231 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 38,142 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 101</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://placehold.co/128x128/94d2bd/005f73?text=MB" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Martynas Beresna</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">University of Southampton, UK</p>
+                            <p class="text-gray-600 mb-4">Expert in femtosecond laser innovations and waveguide fabrication, advancing our capabilities in creating next-generation photonic devices.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 227 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 3,986 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 32</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://placehold.co/128x128/94d2bd/005f73?text=RJB" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Renaud J.B. Bachelot</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Université de Technologie de Troyes, France</p>
+                            <p class="text-gray-600 mb-4">Contributes expertise in nanophotonics and optical system design, focusing on the development of novel materials and devices for sensing applications.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 185 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 5,132 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 41</span>
+                        </div>
+                    </div>                    
+                    <div class="expert-card text-center">
+                        <img src="https://recherche.utt.fr/medias/photo/cc-2012_1586150773799-jpg?ID_FICHE=6996" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Christophe Couteau</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Université de Technologie de Troyes, France</p>
+                            <p class="text-gray-600 mb-4">Provides expertise in quantum photonics and optical systems, crucial for developing next-generation sensors and communication technologies.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 93 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 2,294 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 25</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://mellab-inha.github.io/static/img/members/DYKim.jpg" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Daeyu Kim</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Inha University, South Korea</p>
+                            <p class="text-gray-600 mb-4">An expert in Nanophotonics and Surface-Enhanced Raman Spectroscopy (SERS). Prof. Kim collaborates on developing nano-photonic technologies for detecting environmental contaminants.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 72 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 1,304 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 16</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://pharmacy.utah.edu/sites/g/files/zrelqx186/files/media/images/2021/Shreya%20Goel.jpg" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Dr. Shreya Goel</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">The University of Utah, USA</p>
+                            <p class="text-gray-600 mb-4">Focuses on targeted drug delivery systems using smart nanocarriers, a key area for our advanced therapeutic and diagnostic projects.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 74 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 5,459 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 40</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://placehold.co/128x128/94d2bd/005f73?text=RI" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Dr. Rand Ismaeel</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">National Oceanography Centre Southampton, UK</p>
+                            <p class="text-gray-600 mb-4">Specializes in the design and fabrication of microstructured optical fibers, contributing to our advanced fiber optics and sensing initiatives.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 74 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 896 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 16</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://fabricum.pucp.edu.pe/wp-content/uploads/2023/11/diseno-sin-titulo-67-576x576.jpg" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Dr. Fernando Zvietcovich</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Pontificia Universidad Catolica del Peru, Peru</p>
+                            <p class="text-gray-600 mb-4">Specializes in applying photonics for non-invasive tissue analysis. Dr. Zvietcovich contributes expertise in Optical Coherence Elastography (OCE) and AI-driven biomedical image analysis.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 49 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 787 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 14</span>
+                        </div>
+                    </div>
+                    <div class="expert-card text-center">
+                        <img src="https://placehold.co/128x128/94d2bd/005f73?text=CSK" class="w-60 h-70 rounded-full mx-auto mb-4 border-4 border-[#94d2bd]">
+                        <div class="expert-card-content">
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Dr. Chin Siang Kue</h3>
+                            <p class="font-semibold text-[#0a9396] mb-3">Management & Science University, Malaysia</p>
+                            <p class="text-gray-600 mb-4">Focuses on improving BODIPY dyes for photodynamic cancer therapy, enhancing the effectiveness of our diagnostic and therapeutic tools.</p>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 pt-4 border-t border-gray-200 mt-auto">
+                            <span><i class="fas fa-book-open mr-1"></i> 33 Pubs</span>
+                            <span><i class="fas fa-quote-right mr-1"></i> 757 Cites</span>
+                            <span><i class="fas fa-chart-line mr-1"></i> h-index: 13</span>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Collective Research Impact</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Our international experts form a powerhouse of scientific knowledge, 
+                        collectively publishing over 2,000 articles and receiving more than 100,000 citations in the last decade.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#005f73]">Top Research Themes</h3>
+                         <div class="chart-container" style="height: 500px;">
+                            <canvas id="topTopicsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#005f73]">Combined Subject Expertise</h3>
+                        <div class="chart-container" style="height: 500px;">
+                            <canvas id="subjectAreaChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="hero-bg-partners text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Our Collaborative Ecosystem</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">Innovation is a team sport. We are proud to partner with a diverse network of leaders from industry, healthcare, academia, and government to translate research into real-world impact.</p>
+            </div>
+        </section>
+
+        <section id="partners" class="py-20">
+            <div class="container mx-auto px-6">
+
+                <!-- Industry & Commercial Partners -->
+                <div id="industry-partners" class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Industry & Commercial Partners</h2>
+                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Bridging the gap between deep-tech research and market-ready solutions with our industry leaders.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="partner-card">
+                            <img src="https://placehold.co/200x100/e0f2f1/00796b?text=TOG" alt="Thai Optical Group Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Thai Optical Group Public Co., Ltd.</h3>
+                                <p class="text-gray-600">Collaborating on R&D of advanced optical metrology techniques to verify and enhance the quality of ophthalmic lenses during production, linking fundamental research with commercial manufacturing processes.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://www.nanasupplier.com/picture/logo/2568.jpg" alt="AML Technology Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">AML Technology Co., Ltd.</h3>
+                                <p class="text-gray-600">Partnering in the design and fabrication of high-precision optical instruments for laser systems and measurement, focusing on quality control applications in the agricultural and food industries.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/CPF_Logo.svg/240px-CPF_Logo.svg.png" alt="CPF Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">CPF (Thailand) Public Co., Ltd.</h3>
+                                <p class="text-gray-600">Jointly developing Photonics for Smart Livestock Farming, including non-contact optical techniques for monitoring chicken health and egg quality, integrated with Deep Learning models for precision agriculture.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://mloptic.co.th/wp-content/uploads/2023/08/cropped-cropped-Picture1-e1714365847495.png" alt="ML Optic Thailand Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">MLOptic Thailand</h3>
+                                <p class="text-gray-600">Applying photonics in advanced industries like AR/VR, Biometrics, and Autonomous Vehicles to accelerate technology transfer and commercialization.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://www.kpagro.co.th/wp-content/uploads/2025/03/รวม-Logo-KP.png" alt="K.P. Agro Korat Co., Ltd. Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">K.P. Agro Korat</h3>
+                                <p class="text-gray-600">Developing high-precision Laser Projection Systems for creating large-scale 2D graphics on buildings and in agro-tourism sites.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Partners -->
+                <div id="healthcare-partners" class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Healthcare Partners</h2>
+                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Working hand-in-hand with medical experts to develop and clinically validate next-generation diagnostic and monitoring tools.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                         <div class="partner-card">
+                            <img src="https://www.med.cmu.ac.th/main/files/2020/02/MedGreenEN400x400pixel.png" alt="Chiang Mai University Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Chiang Mai University, Faculty of Medicine</h3>
+                                <p class="text-gray-600">Developing and testing non-invasive photonic-based Capillary Refill Time (CRT) monitors for tracking blood circulation in critical care patients, aiming for deployment in community-level healthcare.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d7/Logo_of_SUT_Med.jpg/250px-Logo_of_SUT_Med.jpg" alt="Suranaree University of Technology School of Medicine Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Suranaree University of Technology, School of Medicine</h3>
+                                <p class="text-gray-600">Collaborating across multiple specialties, including ophthalmology for screening eye diseases in the elderly, pediatrics for non-invasive skin assessment, and rehabilitation medicine for developing photonic vein finders.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Logo_of_Maharat_Nakhon_Ratchasima.png/250px-Logo_of_Maharat_Nakhon_Ratchasima.png" alt="Maharaj Nakhon Ratchasima Hospital Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Maharaj Nakhon Ratchasima Hospital</h3>
+                                <p class="text-gray-600">Partnering on the clinical evaluation and real-world testing of photonic prototypes for eye disease screening, ensuring technologies meet the practical needs of public health services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic & Research Partners -->
+                <div id="academic-partners" class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Academic & Research Partners</h2>
+                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Expanding the frontiers of knowledge with leading national research institutions.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">   
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Mahidol_U.png/600px-Mahidol_U.png" alt="Mahidol University Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Mahidol University</h3>
+                                <p class="text-gray-600">Partnering on social and health impact assessments of new technologies, ensuring our innovations are aligned with community needs and promote health equity in sustainable cities.</p>
+                            </div>
+                        </div>
+                                         
+                        <div class="partner-card">
+                            <img src="https://rmuti.ac.th/one/wp-content/uploads/2022/01/cropped-HomePageBanner-1-768x183-1.png" alt="Rajamangala University of Technology Isan Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Rajamangala University of Technology Isan</h3>
+                                <p class="text-gray-600">Receiving technology transfer of 3D microscopy systems to analyze and monitor tissue abnormalities in aquatic animals caused by water contaminants like herbicides and microplastics.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Logo_of_Burapha_University.svg/300px-Logo_of_Burapha_University.svg.png" alt="Burapha University Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Burapha University</h3>
+                                <p class="text-gray-600">Applying our 3D microscopy systems for the analysis of aquatic tissue, helping to track the impact of pollutants in natural water sources and support environmental health initiatives.</p>
+                            </div>
+                        </div>                                         
+                        
+                        <div class="partner-card">
+                            <img src="https://technopolis.sut.ac.th/wp-content/uploads/2024/04/1-logo-tn-thai.png" alt="Suranaree University of Technology, School of Agricultural Technology Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Technopolis, SUT</h3>
+                                <p class="text-gray-600">Driving technology transfer, Deep-Tech Startup commercialization, business matching, and community engagement to ensure our photonic innovations reach the market.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://placehold.co/200x100/e0f2f1/00796b?text=IAT+SUT" alt="Suranaree University of Technology, School of Agricultural Technology Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">SUT, Institute of Agricultural Technology</h3>
+                                <p class="text-gray-600">Experts in Precision Agriculture and Livestock Farming develop and integrate photonic sensors, aerial imaging, and AI to monitor animal health and improve farm management.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://www.mrsthailand.or.th/img/logo_02.png" alt="MRS Thailand Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Prof. Dr. Santi Maensiri </h3>
+                                <p class="text-gray-600">As a leader in advanced materials for sustainability and clean energy, this partnership drives innovation in materials science to meet Net Zero Emission goals.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://qtric.sut.ac.th/logoblack.png" alt="QTRIc Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Assoc. Prof. Dr. Worawat Meevasana (QTRIc)</h3>
+                                <p class="text-gray-600">Guides the integration of photonics into Thailand's quantum technology roadmap, focusing on quantum sensing and secure quantum telecommunication networks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government Partners -->
+                 <div id="government-partners" class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Government Partners</h2>
+                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Translating technology into policy and practice for national benefit.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="partner-card">
+                            <img src="https://www.accconsultingservice.com/wp-content/uploads/2021/09/BOI_Logo_r_ai.jpg" alt="Thailand Board of Investment Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Thailand Board of Investment (BOI)</h3>
+                                <p class="text-gray-600">Providing policy guidance and support for the commercialization of photonic technologies, connecting our research with industrial needs and promoting the growth of the photonics industry in Thailand.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://www.slri.or.th/th/images/images/Logo_web_new_v2.jpg" alt="Synchrotron Light Research Institute Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Synchrotron Light Research Institute</h3>
+                                <p class="text-gray-600">Co-developing highly sensitive Surface-Enhanced Raman Scattering (SERS) chips for detecting contaminants in food and agricultural products by combining photonics with synchrotron light capabilities.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/NaritLogoPng_0.png/250px-NaritLogoPng_0.png" alt="National Astronomical Research Institute of Thailand Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">National Astronomical Research Institute of Thailand</h3>
+                                <p class="text-gray-600">Collaborating on the development of a Fourier Transform Spectrograph prototype to analyze atmospheric quality by studying the solar spectrum, contributing to environmental monitoring.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://scdc3.forensic.police.go.th/wp-content/uploads/2022/10/scdc3-logo.png" alt="Forensic Science Center 3 Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Police Forensic Science Center 3</h3>
+                                <p class="text-gray-600">Developing and evaluating photonic technologies for forensic DNA analysis, including optical detection of biological evidence and enhancing the sensitivity of genetic material detection.</p>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <!-- Community Partners & Public Engagement -->
+                <div id="community-partners" class="mb-16">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">Community Partners & Public Engagement</h2>
+                        <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Translating Technology into Community-Led Practice.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="partner-card">
+                            <img src="https://www.pidthong.org/th/images/logo-pidthong.png" alt="Pid Thong Lang Phra Foundation Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Pid Thong Lang Phra Foundation</h3>
+                                <p class="text-gray-600">Supporting the deployment of our Photonics Weather Station in pilot areas to promote sustainable rice cultivation with real-time, precise environmental data, ensuring research benefits local communities.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://i.ibb.co/7xhWBpWb/Image-4-8-2568-BE-at-11-50.jpg" alt="Kachanurak Village Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Kachanurak Conservation Village</h3>
+                                <p class="text-gray-600">Piloting a photonic-based elephant surveillance system to reduce human-elephant conflict and promote coexistence between the community and wild elephants in Klong Ta-in village, Chanthaburi.</p>
+                            </div>
+                        </div>
+                        <div class="partner-card">
+                            <img src="https://www.zsl.org/Logo/ZSL-logo-desktop.svg" alt="Zoological Society of London Logo" class="h-20 w-auto mx-auto mb-4 rounded">
+                            <div class="partner-card-content">
+                                <h3 class="text-xl font-bold text-[#005f73] mb-2">Zoological Society of London (ZSL)</h3>
+                                <p class="text-gray-600">A global leader in wildlife conservation, partnering on a pilot project using Photonics-Based Surveillance and AI for real-time elephant detection to mitigate human-wildlife conflict.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- News and Events Section -->
+        <section id="activities-news" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#005f73]">News & Events</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">Stay up to date with the latest news, activities, and upcoming events from the Hub of Talents in Photonics.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Example News/Event Card -->
+                    <div class="bg-gray-50 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Workshop on "OCT-Based Corneal Elastography"</h3>
+                            <p class="text-gray-600 mb-4">
+                                On August 9–10, 2025, we hosted a workshop on “OCT-Based Corneal Elastography” at Centara Life Cha-Am Beach Resort, 
+                                bringing together around 40 physics students. Led by Dr. Fernando Zvietcovich, a leading expert from Pontificia 
+                                Universidad Católica del Perú, the workshop combined lectures on optical coherence elastography (OCE) 
+                                with hands-on sessions using real datasets, offering participants valuable insights into light-based 
+                                medical imaging and its clinical applications, alongside engaging social activities that fostered a vibrant 
+                                learning atmosphere.
+                            </p>
+                            <a href="https://m.facebook.com/story.php?story_fbid=pfbid02Dpu8KJAnZfnxAtAngYqAeo4eE1i7fa1BqYaBxALUEwqEBREvNfCNochFGKkTe18Wl&id=100063970272122" target="_blank" class="text-[#0a9396] underline hover:text-[#005f73] transition">See event details on Facebook</a>
+                        </div>
+                        <div class="mt-4 text-sm text-[#0a9396]">Date: August 9-10, 2025</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Seminar on "Frontier Science and Innovation in Medical Devices for Precision Diagnostics and Treatments"</h3>
+                            <p class="text-gray-600 mb-4">On August 15, 2025, Our team hosted a one-day seminar on “Frontier Science and Innovation 
+                                in Medical Devices for Precision Diagnostics and Treatments,” featuring expert talks on OCT, GD-OCM, and OCE 
+                                technologies. With over 50 participants from academia and industry, the event brought together global and local 
+                                experts—including Prof. Jannick Rolland and Dr. Fernando Zvietcovich—to explore cutting-edge imaging, AI integration, 
+                                and therapeutic innovations, concluding with a networking dinner to foster collaboration.
+                            </p>
+                            <a href="https://thebeatzzz.github.io/HoT-Photonics/Seminar.html" target="_blank" class="text-[#0a9396] underline hover:text-[#005f73] transition">See seminar details</a>
+                        </div>
+                        <div class="mt-4 text-sm text-[#0a9396]">Date: August 15, 2025</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#005f73] mb-2">Workshop on "Freeform Optics with Application to Medical Devices"</h3>
+                            <p class="text-gray-600 mb-4">On August 18–19, 2025, we hosted an intensive workshop on Freeform Optics with 
+                                Applications to Medical Devices, led by Prof. Jannick Rolland from the University of Rochester. With 20–30 
+                                selected participants, the two-day event covered fundamental theories, design methods, fabrication techniques, 
+                                and real-world case studies, fostering advanced learning and collaboration in optical engineering for 
+                                next-generation medical technologies.
+                            </p>
+                        </div>
+                        <div class="mt-4 text-sm text-[#0a9396]">Date: August 18-19, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-contact" class="bg-[#005f73] text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Hub of Talents in Photonics</h3>
+                    <p class="text-gray-300">Driving innovation for a sustainable future through the science of light.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-[#94d2bd] transition">About Us</a></li>
+                        <li><a href="#research" class="hover:text-[#94d2bd] transition">Research</a></li>
+                        <li><a href="#team" class="hover:text-[#94d2bd] transition">Team</a></li>
+                        <li><a href="#partners" class="hover:text-[#94d2bd] transition">Partners</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300">Suranaree University of Technology</p>
+                    <p class="text-gray-300">Nakhon Ratchasima, Thailand</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-2xl hover:text-[#94d2bd] transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl hover:text-[#94d2bd] transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Hub of Talents in Photonics Technology for Sustainable Cities. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // document.getElementById('generationDate').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        // Dropdown for Team & Partners and Activities (desktop and mobile)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.querySelector('nav .md\:flex');
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('hidden');
+                });
+            }
+            // Dropdown for Team & Partners
+            const teamDropdown = document.querySelectorAll('nav .group')[0];
+            if (teamDropdown) {
+                const teamDropdownBtn = teamDropdown.querySelector('button');
+                const teamDropdownMenu = teamDropdown.querySelector('div');
+                if (teamDropdownBtn && teamDropdownMenu) {
+                    teamDropdownBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        teamDropdownMenu.classList.toggle('opacity-0');
+                        teamDropdownMenu.classList.toggle('pointer-events-none');
+                    });
+                    teamDropdownMenu.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                }
+            }
+            // Dropdown for Activities
+            const activitiesDropdown = document.querySelectorAll('nav .group')[1];
+            if (activitiesDropdown) {
+                const activitiesDropdownBtn = activitiesDropdown.querySelector('button');
+                const activitiesDropdownMenu = activitiesDropdown.querySelector('div');
+                if (activitiesDropdownBtn && activitiesDropdownMenu) {
+                    activitiesDropdownBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        activitiesDropdownMenu.classList.toggle('opacity-0');
+                        activitiesDropdownMenu.classList.toggle('pointer-events-none');
+                    });
+                    activitiesDropdownMenu.querySelectorAll('a').forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                }
+            }
+        });
+
+        const researcherData = [
+            { name: 'Kamkaew, A.', output: 92, fwci: 1.40, collab: 44.6 },
+            { name: 'Meemon, P.', output: 47, fwci: 0.68, collab: 31.9 },
+            { name: 'Sutapun, B.', output: 18, fwci: 0.64, collab: 16.7 },
+            { name: 'Rutirawut, T.', output: 28, fwci: 1.53, collab: 64.3 },
+            { name: 'Sangtawesin, S.', output: 19, fwci: 1.80, collab: 63.2 },
+            { name: 'Lertsiriyothin, W.', output: 7, fwci: 0.14, collab: 0.0 },
+            { name: 'Fongkaew, I.', output: 37, fwci: 0.73, collab: 32.4 },
+            { name: 'Talataisong, W.', output: 33, fwci: 0.80, collab: 48.5 },
+        ];
+        
+        const yearlyData = {
+            labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+            publications: [19, 25, 23, 33, 12, 12, 31, 51, 39, 36]
+        };
+
+        const collaborationImpactData = [
+            { collaborator: 'De Leon, N.P. (Harvard)', pubs: 11, citationsPerPub: 78.8, totalCitations: 867 },
+            { collaborator: 'Cai, W. (U. Wisconsin)', pubs: 10, citationsPerPub: 81.8, totalCitations: 818 },
+            { collaborator: 'Brambilla, G. (U. Southampton)', pubs: 23, citationsPerPub: 14.4, totalCitations: 331 },
+            { collaborator: 'Gardes, F.Y. (U. Southampton)', pubs: 24, citationsPerPub: 15.5, totalCitations: 372 },
+            { collaborator: 'Rolland, J.P.V. (U. Rochester)', pubs: 10, citationsPerPub: 25.2, totalCitations: 252 },
+            { collaborator: 'Burgess, K. (Texas A&M)', pubs: 14, citationsPerPub: 30.7, totalCitations: 430 },
+            { collaborator: 'Kirtas, M. (Aristotle U.)', pubs: 6, citationsPerPub: 31.5, totalCitations: 189 },
+        ];
+        
+        const palette = {
+            blueDark: '#005f73',
+            teal: '#0a9396',
+            tealLight: '#94d2bd',
+            sand: '#e9d8a6',
+            orange: '#ee9b00',
+            orangeDark: '#ca6702',
+            redDark: '#ae2012'
+        };
+
+        const chartTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    labels: {
+                        font: {
+                            family: 'Inter',
+                        }
+                    }
+                }
+            }
+        };
+
+        const wrapLabel = (label, maxLength = 16) => {
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const researcherLabels = researcherData.map(r => r.name);
+
+        new Chart(document.getElementById('scholarlyOutputChart'), {
+            type: 'bar',
+            data: {
+                labels: researcherLabels,
+                datasets: [{
+                    label: 'Scholarly Output',
+                    data: researcherData.map(r => r.output),
+                    backgroundColor: palette.teal,
+                    borderColor: palette.blueDark,
+                    borderWidth: 1
+                }]
+            },
+            options: { ...chartTooltipConfig, responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+        });
+
+        const sortedByFwci = [...researcherData].sort((a, b) => b.fwci - a.fwci);
+        new Chart(document.getElementById('fwciChart'), {
+            type: 'bar',
+            data: {
+                labels: sortedByFwci.map(r => r.name),
+                datasets: [{
+                    label: 'Field-Weighted Citation Impact',
+                    data: sortedByFwci.map(r => r.fwci),
+                    backgroundColor: (context) => context.raw > 1.0 ? palette.orange : palette.tealLight,
+                    borderColor: (context) => context.raw > 1.0 ? palette.orangeDark : palette.teal,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { 
+                        beginAtZero: true,
+                        title: { display: true, text: 'FWCI (World Average = 1.0)' }
+                    } 
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+        
+        const sortedByCollab = [...researcherData].sort((a, b) => b.collab - a.collab);
+        new Chart(document.getElementById('collaborationChart'), {
+            type: 'bar',
+            data: {
+                labels: sortedByCollab.map(r => r.name),
+                datasets: [{
+                    label: '% International Collaboration',
+                    data: sortedByCollab.map(r => r.collab),
+                    backgroundColor: palette.teal,
+                    borderColor: palette.blueDark,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: { 
+                    x: { 
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    } 
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('subjectAreaChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Physics & Astronomy', 'Materials Science', 'Engineering', 'Chemistry', 'Computer Science'],
+                datasets: [{
+                    label: 'Team Subject Focus (%)',
+                    data: [51.1, 40.0, 44.3, 28.5, 16.6],
+                    backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                    borderColor: palette.teal,
+                    pointBackgroundColor: palette.teal,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: palette.teal
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                                               pointLabels: { font: { size: 12, family: 'Inter' } },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#666'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 60
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('yearlyPublicationTrendChart'), {
+            type: 'line',
+            data: {
+                labels: yearlyData.labels,
+                datasets: [{
+                    label: 'Total Publications',
+                    data: yearlyData.publications,
+                    fill: true,
+                    backgroundColor: 'rgba(148, 210, 189, 0.2)',
+                    borderColor: palette.teal,
+                    tension: 0.1,
+                    pointBackgroundColor: palette.blueDark,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                ...chartTooltipConfig,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    ...chartTooltipConfig.plugins,
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('internationalCollaborationImpactChart'), {
+            type: 'bubble',
+            data: {
+                labels: collaborationImpactData.map(c => c.collaborator),
+                datasets: [{
+                    label: 'International Collaborators',
+                    data: collaborationImpactData.map(c => ({
+                        x: c.pubs,
+                        y: c.citationsPerPub,
+                        r: Math.sqrt(c.totalCitations) / 2 
+                    })),
+                    backgroundColor: [
+                        'rgba(0, 95, 115, 0.7)',
+                        'rgba(10, 147, 150, 0.7)',
+                        'rgba(148, 210, 189, 0.7)',
+                        'rgba(238, 155, 0, 0.7)',
+                        'rgba(202, 103, 2, 0.7)',
+                        'rgba(174, 32, 18, 0.7)',
+                        'rgba(187, 62, 3, 0.7)'
+                    ],
+                    borderColor: [
+                        '#005f73',
+                        '#0a9396',
+                        '#94d2bd',
+                        '#ee9b00',
+                        '#ca6702',
+                        '#ae2012',
+                        '#bb3e03'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Number of Co-Authored Publications'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Average Citations per Publication'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const dataPoint = collaborationImpactData[context.dataIndex];
+                                return [
+                                    `${dataPoint.collaborator}`,
+                                    `Publications: ${dataPoint.pubs}`,
+                                    `Avg Citations: ${dataPoint.citationsPerPub}`,
+                                    `Total Citations: ${dataPoint.totalCitations}`
+                                ];
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const subjectAreaData = {
+                labels: ['Materials Science', 'Physics & Astro.', 'Engineering', 'Chemistry', 'Biochemistry', 'Medicine', 'Chemical Eng.'],
+                values: [52.5, 47.1, 44.2, 18.3, 18.0, 14.8, 10.3]
+            };
+
+            const topTopicsData = {
+                labels: [
+                    'Nanoparticle Innovations in Cancer Therapy',
+                    'Optical System Design and Alignment',
+                    'Elastography Techniques for Tissue Characterization',
+                    'Femtosecond Laser Innovations in Waveguide Fabrication',
+                    'Photothermal Nanoparticles in Cancer Treatment',
+                    'Ultrasound Techniques for Tissue Characterization',
+                    'Optical Coherence Elastography',
+                    'Optical Coherence Tomography Techniques',
+                    'Cyanine Dyes in Cancer Imaging and Therapy',
+                    'Targeted Drug Delivery Using Smart Nanocarriers'
+                ],
+                values: [80, 71, 49, 46, 45, 45, 27, 25, 16, 12]
+            };
+
+            const palette = {
+                blueDark: '#005f73',
+                teal: '#0a9396',
+                tealLight: '#94d2bd',
+                sand: '#e9d8a6',
+                orange: '#ee9b00',
+                orangeDark: '#ca6702',
+                redDark: '#ae2012'
+            };
+
+            new Chart(document.getElementById('subjectAreaChart2'), {
+                type: 'doughnut',
+                data: {
+                    labels: subjectAreaData.labels,
+                    datasets: [{
+                        label: 'Publication Share',
+                        data: subjectAreaData.values,
+                        backgroundColor: [
+                            palette.blueDark,
+                            palette.teal,
+                            palette.tealLight,
+                            palette.sand,
+                            palette.orange,
+                            palette.orangeDark,
+                            palette.redDark
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                             labels: {
+                                font: {
+                                    family: 'Inter'
+                                },
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('topTopicsChart'), {
+                type: 'bar',
+                data: {
+                    labels: topTopicsData.labels.map(label => {
+                        const words = label.split(' ');
+                        const lines = [];
+                        let currentLine = '';
+                        words.forEach(word => {
+                            if (currentLine.length + word.length > 25) {
+                                lines.push(currentLine);
+                                currentLine = word;
+                            } else {
+                                currentLine += ` ${word}`;
+                            }
+                        });
+                        lines.push(currentLine.trim());
+                        return lines;
+                    }),
+                    datasets: [{
+                        label: 'Scholarly Output',
+                        data: topTopicsData.values,
+                        backgroundColor: palette.teal,
+                        borderColor: palette.blueDark,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Publications'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                             callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                      return label.join(' ');
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
